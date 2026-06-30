@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">Ingrid Sabino — Data Analyst | Design</title>
+<meta name="description" content="Portfólio de Ingrid Sabino, profissional na interseção entre dados e design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#d6d4cc;
+    --surface:#ece9e0;
+    --surface-2:#c4c1b6;
+    --ink:#161510;
+    --ink-soft:#52503f;
+    --ink-faint:#8b8876;
+    --border:#a9a695;
+    --border-soft:#bcb9ab;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Manrope', sans-serif;
+    --font-mono:'Space Mono', monospace;
+    --max:1140px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-weight:400;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--ink); color:var(--bg);}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+  img,svg{display:block;}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(214,212,204,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:66px; gap:20px;}
+  .nav-mark{font-family:var(--font-mono); font-size:13px; letter-spacing:.02em; white-space:nowrap;}
+  .nav-right{display:flex; align-items:center; gap:32px;}
+  .nav-links{display:flex; gap:26px; font-family:var(--font-mono); font-size:12.5px; text-transform:uppercase; letter-spacing:.04em;}
+  .nav-links a{position:relative; padding-bottom:2px;}
+  .nav-links a::before{content:'/'; color:var(--ink-faint); margin-right:3px;}
+  .nav-links a::after{content:''; position:absolute; left:12px; right:0; bottom:-2px; height:1px; background:var(--ink); transform:scaleX(0); transform-origin:left; transition:transform .25s ease;}
+  .nav-links a:hover::after{transform:scaleX(1);}
+  @media (max-width:760px){ .nav-links{display:none;} }
+
+  .lang-switch{display:flex; align-items:center; gap:2px; font-family:var(--font-mono); font-size:12px; border:1px solid var(--border); border-radius:999px; padding:3px;}
+  .lang-btn{
+    background:none; border:none; cursor:pointer; color:var(--ink-faint);
+    padding:5px 11px; border-radius:999px; font-family:var(--font-mono); font-size:12px;
+    letter-spacing:.03em; transition:background .2s ease, color .2s ease;
+  }
+  .lang-btn:hover{color:var(--ink);}
+  .lang-btn.active{background:var(--ink); color:var(--bg);}
+
+  /* ---------- hero ---------- */
+  .hero{min-height:100svh; display:flex; flex-direction:column; justify-content:center; position:relative; padding-top:66px;}
+  .hero-bg{
+    position:absolute; inset:0; z-index:0; pointer-events:none;
+    background-image:linear-gradient(var(--border-soft) 1px, transparent 1px), linear-gradient(90deg, var(--border-soft) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:.35;
+    mask-image:radial-gradient(ellipse 65% 55% at 50% 40%, black, transparent 80%);
+    -webkit-mask-image:radial-gradient(ellipse 65% 55% at 50% 40%, black, transparent 80%);
+  }
+  .hero .wrap{position:relative; z-index:1;}
+  .hero-top{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;}
+  .eyebrow{
+    font-family:var(--font-mono); font-size:13px; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--ink-soft);
+  }
+  .eyebrow::before{content:'/ '; color:var(--ink);}
+  .badge-rotate{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase;
+    border:1px solid var(--ink); padding:8px 14px; border-radius:999px;
+    transform:rotate(-6deg); background:var(--surface);
+  }
+  h1.name{
+    font-family:var(--font-display); font-weight:700; text-transform:uppercase;
+    font-size:clamp(40px, 7.5vw, 96px);
+    line-height:0.95; letter-spacing:-0.01em; margin-top:18px;
+    white-space:nowrap; max-width:100%;
+  }
+  .role{
+    font-family:var(--font-body); font-weight:500; font-size:clamp(16px,2vw,19px);
+    color:var(--ink-soft); margin-top:22px; max-width:46ch;
+  }
+  .hero-bottom{display:flex; justify-content:space-between; align-items:flex-end; margin-top:48px; flex-wrap:wrap; gap:24px;}
+  .tagline{font-family:var(--font-display); font-weight:600; font-size:clamp(18px,2.6vw,27px); white-space:nowrap;}
+  .hero-meta{display:flex; flex-direction:column; gap:8px; font-family:var(--font-mono); font-size:12px; color:var(--ink-faint); text-align:right;}
+  .hero-meta span::before{content:'/ ';}
+  @media (max-width:680px){
+    .hero-bottom{flex-direction:column; align-items:flex-start;}
+    .hero-meta{text-align:left;}
+    h1.name{white-space:normal; font-size:clamp(34px,12vw,58px);}
+    .tagline{white-space:normal;}
+  }
+
+  /* ---------- section shared ---------- */
+  section{padding:120px 0;}
+  .section-head{display:flex; align-items:baseline; gap:18px; margin-bottom:56px;}
+  .section-num{font-family:var(--font-mono); font-size:13px; color:var(--ink-faint);}
+  .section-title{font-family:var(--font-display); font-weight:700; text-transform:uppercase; font-size:clamp(26px,4vw,38px); letter-spacing:-0.01em;}
+  .section-rule{flex:1; height:1px; background:var(--border);}
+
+  /* ---------- about ---------- */
+  .about-layout{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px;}
+  @media (max-width:840px){ .about-layout{grid-template-columns:1fr; gap:40px;} }
+  .about-lead{font-family:var(--font-display); font-weight:600; font-size:clamp(22px,2.6vw,29px); line-height:1.3;}
+  .about-body p{color:var(--ink-soft); margin-bottom:18px; font-size:15.5px;}
+  .about-body p:last-child{margin-bottom:0;}
+
+  .skills{margin-top:32px;}
+  .skills-label{font-family:var(--font-mono); font-size:11.5px; color:var(--ink-faint); letter-spacing:.06em; text-transform:uppercase; margin-bottom:14px; display:block;}
+  .skills-label::before{content:'/ ';}
+  .tag-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:var(--font-mono); font-size:12px; color:var(--ink);
+    border:1px solid var(--border); padding:7px 13px; border-radius:999px;
+    background:var(--surface);
+    transition:background .2s ease, color .2s ease;
+  }
+  .tag:hover{background:var(--ink); color:var(--bg); border-color:var(--ink);}
+
+  .langs{display:flex; gap:24px; margin-top:32px; font-family:var(--font-mono); font-size:12px; color:var(--ink-faint);}
+  .langs b{color:var(--ink); font-weight:700;}
+
+  .edu{margin-top:40px; border-top:1px solid var(--border); padding-top:28px;}
+  .edu-row{display:flex; justify-content:space-between; gap:16px; padding:11px 0; font-size:14px; flex-wrap:wrap; border-bottom:1px solid var(--border-soft);}
+  .edu-row:last-child{border-bottom:none;}
+  .edu-row .school{color:var(--ink); font-weight:700; font-family:var(--font-display);}
+  .edu-row .deg{color:var(--ink-faint); font-family:var(--font-mono); font-size:11.5px;}
+
+  /* ---------- services ---------- */
+  .services-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px;}
+  @media (max-width:840px){ .services-grid{grid-template-columns:1fr; gap:40px;} }
+  .service-group-label{font-family:var(--font-mono); font-size:11.5px; color:var(--ink-faint); letter-spacing:.06em; text-transform:uppercase; margin-bottom:18px; display:block;}
+  .service-group-label::before{content:'/ ';}
+  .service-card{
+    display:flex; gap:18px; align-items:flex-start;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:24px;
+    margin-bottom:16px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .service-card:last-child{margin-bottom:0;}
+  .service-card:hover{transform:translateY(-4px); box-shadow:0 14px 24px -16px rgba(20,19,14,0.3);}
+  .service-icon{
+    flex-shrink:0; width:44px; height:44px; border-radius:10px;
+    background:var(--bg); border:1px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .service-icon svg{width:22px; height:22px; color:var(--ink);}
+  .service-text h4{font-family:var(--font-display); font-weight:700; font-size:16.5px; margin-bottom:6px;}
+  .service-text p{font-size:13.8px; color:var(--ink-soft); line-height:1.5;}
+
+  /* ---------- cases / cards ---------- */
+  .case-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media (max-width:980px){ .case-grid{grid-template-columns:1fr; } }
+  .case-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:32px;
+    display:flex; flex-direction:column;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .case-card:hover{transform:translateY(-6px); box-shadow:0 18px 30px -18px rgba(20,19,14,0.35); background:var(--ink); color:var(--bg);}
+  .case-card:hover .case-period,
+  .case-card:hover .case-loc,
+  .case-card:hover .case-company,
+  .case-card:hover .case-points li{color:var(--surface-2);}
+  .case-card:hover .case-num{color:var(--bg); opacity:.4;}
+  .case-card:hover .tag{background:transparent; border-color:var(--surface-2); color:var(--bg);}
+  .case-num{
+    font-family:var(--font-mono); font-size:13px; color:var(--ink-faint);
+    margin-bottom:18px; transition:color .25s ease;
+  }
+  .case-period{font-family:var(--font-mono); font-size:11.5px; color:var(--ink-faint); letter-spacing:.04em; margin-bottom:10px; transition:color .25s ease;}
+  .case-role{font-family:var(--font-display); font-weight:700; font-size:20px; line-height:1.2; margin-bottom:4px;}
+  .case-company{font-family:var(--font-mono); font-size:12.5px; color:var(--ink-soft); margin-bottom:4px; transition:color .25s ease;}
+  .case-loc{font-size:12.5px; color:var(--ink-faint); margin-bottom:20px; transition:color .25s ease;}
+  .case-points{list-style:none; flex:1;}
+  .case-points li{font-size:13.8px; color:var(--ink-soft); padding-left:16px; position:relative; margin-bottom:10px; transition:color .25s ease;}
+  .case-points li::before{content:'—'; position:absolute; left:0;}
+  .case-tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:20px;}
+  .case-tags .tag{font-size:10.5px; padding:5px 10px;}
+
+  /* ---------- contact ---------- */
+  .contact-layout{display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px;}
+  @media (max-width:840px){ .contact-layout{grid-template-columns:1fr; gap:48px;} }
+  .contact-title{font-family:var(--font-display); font-weight:700; text-transform:uppercase; font-size:clamp(32px,5vw,50px); line-height:1.02; margin-bottom:20px; letter-spacing:-0.01em;}
+  .contact-sub{color:var(--ink-soft); font-size:15.5px; max-width:42ch; margin-bottom:36px;}
+  .contact-links{display:flex; flex-direction:column; gap:2px;}
+  .contact-links a{display:flex; align-items:center; gap:12px; padding:15px 4px; border-bottom:1px solid var(--border); font-family:var(--font-mono); font-size:13.5px; transition:padding-left .2s ease, background .2s ease;}
+  .contact-links a:hover{padding-left:10px; background:var(--surface);}
+  .contact-links a svg{flex-shrink:0; opacity:.75;}
+  .contact-links a .arrow{margin-left:auto; opacity:.5;}
+
+  form{display:flex; flex-direction:column; gap:20px;}
+  .field{display:flex; flex-direction:column; gap:8px;}
+  .field label{font-family:var(--font-mono); font-size:11px; color:var(--ink-faint); letter-spacing:.06em; text-transform:uppercase;}
+  .field label::before{content:'/ ';}
+  .field input, .field textarea{
+    background:var(--surface);
+    border:1px solid var(--border);
+    color:var(--ink);
+    padding:14px 16px;
+    font-family:var(--font-body);
+    font-size:14.5px;
+    border-radius:10px;
+    transition:border-color .2s ease;
+  }
+  .field input::placeholder, .field textarea::placeholder{color:var(--ink-faint);}
+  .field input:focus, .field textarea:focus{outline:none; border-color:var(--ink);}
+  .field textarea{resize:vertical; min-height:120px;}
+  .submit-btn{
+    align-self:flex-start;
+    background:var(--ink);
+    color:var(--bg);
+    border:none;
+    font-family:var(--font-mono);
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    padding:15px 30px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:opacity .2s ease, transform .2s ease;
+    margin-top:6px;
+  }
+  .submit-btn:hover{opacity:.82;}
+  .submit-btn:active{transform:scale(.97);}
+  .form-note{font-family:var(--font-mono); font-size:11.5px; color:var(--ink-faint); margin-top:4px; min-height:16px;}
+  .form-note.ok{color:var(--ink);}
+
+  footer{border-top:1px solid var(--border); padding:60px 0 36px;}
+  .footer-big{font-family:var(--font-display); font-weight:700; text-transform:uppercase; font-size:clamp(26px,5vw,46px); letter-spacing:-0.01em; margin-bottom:40px; max-width:18ch;}
+  footer .foot-row{display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:11.5px; color:var(--ink-faint); flex-wrap:wrap; gap:10px;}
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+  @media (max-width:640px){ section{padding:80px 0;} .wrap{padding:0 22px;} }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-mark">IS · DATA / DESIGN</div>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#sobre" id="nav-about">Sobre</a>
+        <a href="#servicos" id="nav-services">Serviços</a>
+        <a href="#trajetoria" id="nav-journey">Trajetória</a>
+        <a href="#contato" id="nav-contact">Contato</a>
+      </div>
+      <div class="lang-switch" role="group" aria-label="Idioma do site">
+        <button class="lang-btn active" data-lang="pt">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-top">
+      <p class="eyebrow" id="hero-eyebrow">Data Analyst &amp; Designer</p>
+      <span class="badge-rotate" id="hero-badge">desde 2022</span>
+    </div>
+    <h1 class="name">Ingrid Sabino</h1>
+    <p class="role" id="hero-role">Business Intelligence · Growth &amp; CX Strategy. Transformo dados complexos em decisões claras, com a sensibilidade de quem vem do design.</p>
+    <div class="hero-bottom">
+      <p class="tagline" id="hero-tagline">Traduzindo complexidade em clareza.</p>
+      <div class="hero-meta">
+        <span id="hero-loc">São Paulo, Brasil</span>
+        <span>PT · EN · ES</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="sobre">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-num">/01</span>
+        <h2 class="section-title" id="sec1-title">Sobre</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="about-layout">
+        <p class="about-lead reveal" id="about-lead">Trago a curiosidade de quem desenha para os problemas de dados e a lógica de quem analisa para os desafios criativos.</p>
+
+        <div class="about-body reveal">
+          <p id="about-p1">Desde 2022 atuo na interseção entre dados e design, guiada pelo desejo de traduzir complexidade em clareza. Minha trajetória mistura análise estratégica, experiência do usuário e data storytelling, transformando informação em insights e narrativas que orientam decisões melhores.</p>
+          <p id="about-p2">Desenho e escalo soluções de dados que ajudam times de marketing e CX a decidir com mais segurança, de pipelines de ETL a dashboards executivos que geram ação. Formada em Design e Comunicação Visual pela USP, com passagens por growth marketing, customer experience e data design, aprendi que dados não são só medição. São também imaginação, experimentação e construção de experiências significativas para pessoas.</p>
+          <p id="about-p3">Fora do trabalho, me movo. Esportes e artes me lembram que ritmo, equilíbrio e exploração também são formas de pensar.</p>
+
+          <div class="skills">
+            <span class="skills-label" id="skills-label">Ferramentas &amp; competências</span>
+            <div class="tag-row">
+              <span class="tag">SQL</span>
+              <span class="tag">Python</span>
+              <span class="tag">Tableau</span>
+              <span class="tag">Looker</span>
+              <span class="tag">Metabase</span>
+              <span class="tag">ETL</span>
+              <span class="tag">KPI Design</span>
+              <span class="tag">Customer Segmentation</span>
+              <span class="tag">NPS / CSAT</span>
+              <span class="tag">Predictive Analysis</span>
+            </div>
+          </div>
+
+          <div class="langs">
+            <span id="lang-row-pt"><b>PT</b> nativo</span>
+            <span id="lang-row-en"><b>EN</b> avançado</span>
+            <span id="lang-row-es"><b>ES</b> avançado</span>
+          </div>
+
+          <div class="edu">
+            <span class="skills-label" id="edu-label">Formação</span>
+            <div class="edu-row">
+              <span class="school">Universidade de São Paulo</span>
+              <span class="deg" id="edu-deg-usp">Design e Comunicação Visual · 2021–2025</span>
+            </div>
+            <div class="edu-row">
+              <span class="school">UNAM — México</span>
+              <span class="deg" id="edu-deg-unam">Diseño · 2023</span>
+            </div>
+            <div class="edu-row">
+              <span class="school">EBAC</span>
+              <span class="deg" id="edu-deg-ebac">Design Gráfico · 2022</span>
+            </div>
+            <div class="edu-row">
+              <span class="school">UFU</span>
+              <span class="deg" id="edu-deg-ufu">Engenharia Química · 2016–2021</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-num">/02</span>
+        <h2 class="section-title" id="sec-services-title">Serviços</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-group reveal">
+          <span class="service-group-label" id="group-data-title">Dados &amp; Analytics</span>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19V11"/><path d="M10 19V5"/><path d="M16 19V13"/><path d="M22 19V8"/></svg>
+            </div>
+            <div class="service-text">
+              <h4 id="svc1-title">Consultoria de dados</h4>
+              <p id="svc1-desc">Análise e insights para empresas que querem tomar decisões com mais clareza.</p>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg>
+            </div>
+            <div class="service-text">
+              <h4 id="svc2-title">Produtos de dados</h4>
+              <p id="svc2-desc">Construção de automações, tabelas, dashboards e planilhas de acompanhamento para o dia a dia do time.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-group reveal">
+          <span class="service-group-label" id="group-design-title">Design</span>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div class="service-text">
+              <h4 id="svc3-title">Apresentações executivas</h4>
+              <p id="svc3-desc">Diagramação de slides para reuniões, board e pitches, com clareza visual e foco na mensagem.</p>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20"/><circle cx="5.5" cy="6" r="0.6" fill="currentColor" stroke="none"/><circle cx="7.5" cy="6" r="0.6" fill="currentColor" stroke="none"/><circle cx="9.5" cy="6" r="0.6" fill="currentColor" stroke="none"/></svg>
+            </div>
+            <div class="service-text">
+              <h4 id="svc4-title">Criação de sites</h4>
+              <p id="svc4-desc">Sites simples e bem desenhados para portfólios, marcas pessoais e pequenos negócios.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trajetoria">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-num">/03</span>
+        <h2 class="section-title" id="sec2-title">Trajetória</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="case-grid">
+
+        <div class="case-card reveal">
+          <span class="case-num">/01</span>
+          <p class="case-period" id="case-period-1">JUN 2025 → PRESENTE</p>
+          <h3 class="case-role">Performance &amp; Insights Analyst</h3>
+          <p class="case-company">Flash</p>
+          <p class="case-loc" id="case-loc-1">São Paulo, Brasil</p>
+          <ul class="case-points">
+            <li id="c1p1">Liderança no design e escala de ecossistemas de dados com SQL e Python, transformando grandes volumes em dashboards executivos.</li>
+            <li id="c1p2">Parceria estratégica com CX e Operações para otimizar a jornada do cliente e métricas de satisfação (NPS/CSAT).</li>
+            <li id="c1p3">Redução do tempo médio de atendimento via análise preditiva de gargalos de serviço.</li>
+          </ul>
+          <div class="case-tags">
+            <span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Dashboards</span>
+          </div>
+        </div>
+
+        <div class="case-card reveal">
+          <span class="case-num">/02</span>
+          <p class="case-period" id="case-period-2">SET 2024 → JUN 2025</p>
+          <h3 class="case-role">Data Designer</h3>
+          <p class="case-company">Itaú Unibanco</p>
+          <p class="case-loc" id="case-loc-2">São Paulo, Brasil</p>
+          <ul class="case-points">
+            <li id="c2p1">Mapeamento de jornadas de clientes, convertendo dados brutos em insights comportamentais acionáveis.</li>
+            <li id="c2p2">Design de KPIs e frameworks de mensuração para produtos de dados e experimentação.</li>
+            <li id="c2p3">Segmentação de clientes para estratégia omnichannel (App + OOH), elevando o benchmark de targeting.</li>
+          </ul>
+          <div class="case-tags">
+            <span class="tag">KPI Design</span><span class="tag">Customer Journey</span>
+          </div>
+        </div>
+
+        <div class="case-card reveal">
+          <span class="case-num">/03</span>
+          <p class="case-period" id="case-period-3">FEV 2022 → JUL 2024</p>
+          <h3 class="case-role">BI Analyst · Growth Marketing</h3>
+          <p class="case-company">iFood</p>
+          <p class="case-loc" id="case-loc-3">São Paulo, Brasil</p>
+          <ul class="case-points">
+            <li id="c3p1">Gestão de KPIs de growth e retenção, traduzindo comportamento em estratégias de marketing de alto impacto.</li>
+            <li id="c3p2">Consolidação do relatório mensal de Growth, fonte de verdade para decisões de liderança.</li>
+            <li id="c3p3">Segmentação e análises comportamentais para campanhas sazonais.</li>
+          </ul>
+          <div class="case-tags">
+            <span class="tag">Growth</span><span class="tag">Reporting</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-num">/04</span>
+        <h2 class="section-title" id="sec3-title">Contato</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="contact-layout">
+        <div class="reveal">
+          <h3 class="contact-title" id="contact-title">Vamos<br>conversar?</h3>
+          <p class="contact-sub" id="contact-sub">Aberta a novas oportunidades, parcerias e boas conversas sobre dados, design e tudo que existe entre os dois.</p>
+
+          <div class="contact-links">
+            <a href="mailto:ingridsabino000@gmail.com">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+              ingridsabino000@gmail.com
+              <span class="arrow">→</span>
+            </a>
+            <a href="https://www.linkedin.com/in/ingrid-sabino/" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13c0-2.2 1.8-4 4-4s4 1.8 4 4v8"/></svg>
+              linkedin.com/in/ingrid-sabino
+              <span class="arrow">→</span>
+            </a>
+            <a href="https://github.com/" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 19c-4 1.5-4-2-6-2m12 4v-3.4c0-1 .1-1.4-.5-2 2.7-.3 5.5-1.3 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.4 1.2a11.8 11.8 0 0 0-6.2 0C6.6 1.8 5.6 2.1 5.6 2.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.2 8.5c0 4.7 2.8 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+              github.com/ingridsabino
+              <span class="arrow">→</span>
+            </a>
+            <a href="https://wa.me/55" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12a9 9 0 1 1-4.2-7.6"/><path d="M16 8a4 4 0 0 0-4-4"/><path d="M11 13c1 2 2 3 4 4l1.4-1.4a1 1 0 0 1 1.1-.2l2 .8a1 1 0 0 1 .6 1v1.8a1 1 0 0 1-1.1 1C13.5 19.6 8.4 14.5 8 8.1a1 1 0 0 1 1-1.1H10.8a1 1 0 0 1 1 .6l.8 2a1 1 0 0 1-.2 1.1z"/></svg>
+              WhatsApp
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <form id="contact-form" class="reveal">
+          <div class="field">
+            <label for="f-name" id="form-label-name">Nome</label>
+            <input id="f-name" name="name" type="text" required placeholder="Seu nome">
+          </div>
+          <div class="field">
+            <label for="f-email" id="form-label-email">Email</label>
+            <input id="f-email" name="email" type="email" required placeholder="seu@email.com">
+          </div>
+          <div class="field">
+            <label for="f-msg" id="form-label-msg">Mensagem</label>
+            <textarea id="f-msg" name="message" required placeholder="Conte um pouco sobre o que você tem em mente..."></textarea>
+          </div>
+          <button class="submit-btn" type="submit" id="submit-btn">Enviar mensagem</button>
+          <p class="form-note" id="form-note"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="footer-big" id="footer-big">Dados que fazem sentido.</p>
+    <div class="foot-row">
+      <span>© 2026 Ingrid Sabino</span>
+      <span id="footer-loc">/ São Paulo, Brasil</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ---------- scroll reveal ---------- */
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  /* ---------- i18n ---------- */
+  const translations = {
+    pt: {
+      'doc-title': 'Ingrid Sabino — Data Analyst | Design',
+      'nav-about': 'Sobre', 'nav-services': 'Serviços', 'nav-journey': 'Trajetória', 'nav-contact': 'Contato',
+      'hero-eyebrow': 'Data Analyst &amp; Designer',
+      'hero-badge': 'desde 2022',
+      'hero-role': 'Business Intelligence · Growth &amp; CX Strategy. Transformo dados complexos em decisões claras, com a sensibilidade de quem vem do design.',
+      'hero-tagline': 'Traduzindo complexidade em clareza.',
+      'hero-loc': 'São Paulo, Brasil',
+      'sec1-title': 'Sobre',
+      'about-lead': 'Trago a curiosidade de quem desenha para os problemas de dados e a lógica de quem analisa para os desafios criativos.',
+      'about-p1': 'Desde 2022 atuo na interseção entre dados e design, guiada pelo desejo de traduzir complexidade em clareza. Minha trajetória mistura análise estratégica, experiência do usuário e data storytelling, transformando informação em insights e narrativas que orientam decisões melhores.',
+      'about-p2': 'Desenho e escalo soluções de dados que ajudam times de marketing e CX a decidir com mais segurança, de pipelines de ETL a dashboards executivos que geram ação. Formada em Design e Comunicação Visual pela USP, com passagens por growth marketing, customer experience e data design, aprendi que dados não são só medição. São também imaginação, experimentação e construção de experiências significativas para pessoas.',
+      'about-p3': 'Fora do trabalho, me movo. Esportes e artes me lembram que ritmo, equilíbrio e exploração também são formas de pensar.',
+      'skills-label': 'Ferramentas &amp; competências',
+      'lang-row-pt': '<b>PT</b> nativo', 'lang-row-en': '<b>EN</b> avançado', 'lang-row-es': '<b>ES</b> avançado',
+      'edu-label': 'Formação',
+      'edu-deg-usp': 'Design e Comunicação Visual · 2021–2025',
+      'edu-deg-unam': 'Diseño · 2023',
+      'edu-deg-ebac': 'Design Gráfico · 2022',
+      'edu-deg-ufu': 'Engenharia Química · 2016–2021',
+      'sec-services-title': 'Serviços',
+      'group-data-title': 'Dados &amp; Analytics',
+      'group-design-title': 'Design',
+      'svc1-title': 'Consultoria de dados',
+      'svc1-desc': 'Análise e insights para empresas que querem tomar decisões com mais clareza.',
+      'svc2-title': 'Produtos de dados',
+      'svc2-desc': 'Construção de automações, tabelas, dashboards e planilhas de acompanhamento para o dia a dia do time.',
+      'svc3-title': 'Apresentações executivas',
+      'svc3-desc': 'Diagramação de slides para reuniões, board e pitches, com clareza visual e foco na mensagem.',
+      'svc4-title': 'Criação de sites',
+      'svc4-desc': 'Sites simples e bem desenhados para portfólios, marcas pessoais e pequenos negócios.',
+      'sec2-title': 'Trajetória',
+      'case-period-1': 'JUN 2025 → PRESENTE', 'case-period-2': 'SET 2024 → JUN 2025', 'case-period-3': 'FEV 2022 → JUL 2024',
+      'case-loc-1': 'São Paulo, Brasil', 'case-loc-2': 'São Paulo, Brasil', 'case-loc-3': 'São Paulo, Brasil',
+      'c1p1': 'Liderança no design e escala de ecossistemas de dados com SQL e Python, transformando grandes volumes em dashboards executivos.',
+      'c1p2': 'Parceria estratégica com CX e Operações para otimizar a jornada do cliente e métricas de satisfação (NPS/CSAT).',
+      'c1p3': 'Redução do tempo médio de atendimento via análise preditiva de gargalos de serviço.',
+      'c2p1': 'Mapeamento de jornadas de clientes, convertendo dados brutos em insights comportamentais acionáveis.',
+      'c2p2': 'Design de KPIs e frameworks de mensuração para produtos de dados e experimentação.',
+      'c2p3': 'Segmentação de clientes para estratégia omnichannel (App + OOH), elevando o benchmark de targeting.',
+      'c3p1': 'Gestão de KPIs de growth e retenção, traduzindo comportamento em estratégias de marketing de alto impacto.',
+      'c3p2': 'Consolidação do relatório mensal de Growth, fonte de verdade para decisões de liderança.',
+      'c3p3': 'Segmentação e análises comportamentais para campanhas sazonais.',
+      'sec3-title': 'Contato',
+      'contact-title': 'Vamos<br>conversar?',
+      'contact-sub': 'Aberta a novas oportunidades, parcerias e boas conversas sobre dados, design e tudo que existe entre os dois.',
+      'form-label-name': 'Nome', 'form-label-email': 'Email', 'form-label-msg': 'Mensagem',
+      'f-name': 'Seu nome', 'f-email': 'seu@email.com', 'f-msg': 'Conte um pouco sobre o que você tem em mente...',
+      'submit-btn': 'Enviar mensagem',
+      'formNoteSuccess': 'Abrindo seu aplicativo de email com a mensagem pronta para envio.',
+      'footer-big': 'Dados que fazem sentido.',
+      'footer-loc': '/ São Paulo, Brasil',
+      htmlLang: 'pt-BR'
+    },
+    en: {
+      'doc-title': 'Ingrid Sabino — Data Analyst | Design',
+      'nav-about': 'About', 'nav-services': 'Services', 'nav-journey': 'Journey', 'nav-contact': 'Contact',
+      'hero-eyebrow': 'Data Analyst &amp; Designer',
+      'hero-badge': 'since 2022',
+      'hero-role': 'Business Intelligence · Growth &amp; CX Strategy. I turn complex data into clear decisions, with the sensibility of someone who comes from design.',
+      'hero-tagline': 'Translating complexity into clarity.',
+      'hero-loc': 'São Paulo, Brazil',
+      'sec1-title': 'About',
+      'about-lead': 'I bring the curiosity of someone who designs to data problems and the logic of someone who analyzes to creative challenges.',
+      'about-p1': "Since 2022 I've worked at the intersection of data and design, driven by the desire to translate complexity into clarity. My path blends strategic analysis, user experience and data storytelling, turning information into insights and narratives that drive better decisions.",
+      'about-p2': "I design and scale data solutions that help marketing and CX teams decide with more confidence, from ETL pipelines to executive dashboards that drive action. With a background in Visual Communication Design from USP, and experience across growth marketing, customer experience and data design, I've learned that data isn't just measurement. It's also imagination, experimentation and building meaningful experiences for people.",
+      'about-p3': 'Outside of work, I move. Sports and art remind me that rhythm, balance and exploration are also ways of thinking.',
+      'skills-label': 'Tools &amp; skills',
+      'lang-row-pt': '<b>PT</b> native', 'lang-row-en': '<b>EN</b> advanced', 'lang-row-es': '<b>ES</b> advanced',
+      'edu-label': 'Education',
+      'edu-deg-usp': 'Visual Communication Design · 2021–2025',
+      'edu-deg-unam': 'Design · 2023',
+      'edu-deg-ebac': 'Graphic Design · 2022',
+      'edu-deg-ufu': 'Chemical Engineering · 2016–2021',
+      'sec-services-title': 'Services',
+      'group-data-title': 'Data &amp; Analytics',
+      'group-design-title': 'Design',
+      'svc1-title': 'Data consulting',
+      'svc1-desc': 'Analysis and insights for companies that want to make clearer decisions.',
+      'svc2-title': 'Data products',
+      'svc2-desc': 'Building automations, spreadsheets, dashboards and tracking sheets for everyday team use.',
+      'svc3-title': 'Executive presentations',
+      'svc3-desc': 'Slide design for meetings, board decks and pitches, with visual clarity and a focus on the message.',
+      'svc4-title': 'Website creation',
+      'svc4-desc': 'Simple, well designed websites for portfolios, personal brands and small businesses.',
+      'sec2-title': 'Journey',
+      'case-period-1': 'JUN 2025 → PRESENT', 'case-period-2': 'SEP 2024 → JUN 2025', 'case-period-3': 'FEB 2022 → JUL 2024',
+      'case-loc-1': 'São Paulo, Brazil', 'case-loc-2': 'São Paulo, Brazil', 'case-loc-3': 'São Paulo, Brazil',
+      'c1p1': 'Led the design and scaling of data ecosystems with SQL and Python, turning large volumes of data into executive dashboards.',
+      'c1p2': 'Strategic partnership with CX and Operations to optimize the customer journey and satisfaction metrics (NPS/CSAT).',
+      'c1p3': 'Reduced average handling time through predictive analysis of service bottlenecks.',
+      'c2p1': 'Mapped customer journeys, converting raw data into actionable behavioral insights.',
+      'c2p2': 'Designed KPIs and measurement frameworks for data products and experimentation.',
+      'c2p3': 'Structured customer segmentation for an omnichannel strategy (App + OOH), raising the targeting benchmark.',
+      'c3p1': 'Managed growth and retention KPIs, translating behavior into high-impact marketing strategies.',
+      'c3p2': 'Consolidated the monthly Growth report, the source of truth for leadership decisions.',
+      'c3p3': 'Conducted segmentation and behavioral analysis for seasonal campaigns.',
+      'sec3-title': 'Contact',
+      'contact-title': "Let's<br>talk?",
+      'contact-sub': 'Open to new opportunities, partnerships and good conversations about data, design, and everything in between.',
+      'form-label-name': 'Name', 'form-label-email': 'Email', 'form-label-msg': 'Message',
+      'f-name': 'Your name', 'f-email': 'you@email.com', 'f-msg': "Tell me a bit about what's on your mind...",
+      'submit-btn': 'Send message',
+      'formNoteSuccess': 'Opening your email app with the message ready to send.',
+      'footer-big': 'Data that makes sense.',
+      'footer-loc': '/ São Paulo, Brazil',
+      htmlLang: 'en'
+    },
+    es: {
+      'doc-title': 'Ingrid Sabino — Data Analyst | Diseño',
+      'nav-about': 'Acerca de', 'nav-services': 'Servicios', 'nav-journey': 'Trayectoria', 'nav-contact': 'Contacto',
+      'hero-eyebrow': 'Analista de Datos y Diseñadora',
+      'hero-badge': 'desde 2022',
+      'hero-role': 'Business Intelligence · Estrategia de Growth y CX. Transformo datos complejos en decisiones claras, con la sensibilidad de quien viene del diseño.',
+      'hero-tagline': 'Traduciendo la complejidad en claridad.',
+      'hero-loc': 'São Paulo, Brasil',
+      'sec1-title': 'Acerca de',
+      'about-lead': 'Traigo la curiosidad de quien diseña a los problemas de datos y la lógica de quien analiza a los desafíos creativos.',
+      'about-p1': 'Desde 2022 trabajo en la intersección entre datos y diseño, impulsada por el deseo de traducir la complejidad en claridad. Mi trayectoria combina análisis estratégico, experiencia de usuario y storytelling de datos, transformando información en insights y narrativas que orientan mejores decisiones.',
+      'about-p2': 'Diseño y escalo soluciones de datos que ayudan a los equipos de marketing y CX a decidir con más seguridad, desde pipelines de ETL hasta dashboards ejecutivos que generan acción. Formada en Diseño y Comunicación Visual por la USP, con experiencia en growth marketing, customer experience y data design, aprendí que los datos no son solo medición. También son imaginación, experimentación y la construcción de experiencias significativas para las personas.',
+      'about-p3': 'Fuera del trabajo, me muevo. El deporte y el arte me recuerdan que el ritmo, el equilibrio y la exploración también son formas de pensar.',
+      'skills-label': 'Herramientas y habilidades',
+      'lang-row-pt': '<b>PT</b> nativo', 'lang-row-en': '<b>EN</b> avanzado', 'lang-row-es': '<b>ES</b> avanzado',
+      'edu-label': 'Formación',
+      'edu-deg-usp': 'Diseño y Comunicación Visual · 2021–2025',
+      'edu-deg-unam': 'Diseño · 2023',
+      'edu-deg-ebac': 'Diseño Gráfico · 2022',
+      'edu-deg-ufu': 'Ingeniería Química · 2016–2021',
+      'sec-services-title': 'Servicios',
+      'group-data-title': 'Datos y Analítica',
+      'group-design-title': 'Diseño',
+      'svc1-title': 'Consultoría de datos',
+      'svc1-desc': 'Análisis e insights para empresas que quieren tomar decisiones con más claridad.',
+      'svc2-title': 'Productos de datos',
+      'svc2-desc': 'Construcción de automatizaciones, tablas, dashboards y planillas de seguimiento para el día a día del equipo.',
+      'svc3-title': 'Presentaciones ejecutivas',
+      'svc3-desc': 'Diseño de diapositivas para reuniones, directorios y pitches, con claridad visual y foco en el mensaje.',
+      'svc4-title': 'Creación de sitios web',
+      'svc4-desc': 'Sitios simples y bien diseñados para portafolios, marcas personales y pequeños negocios.',
+      'sec2-title': 'Trayectoria',
+      'case-period-1': 'JUN 2025 → PRESENTE', 'case-period-2': 'SEP 2024 → JUN 2025', 'case-period-3': 'FEB 2022 → JUL 2024',
+      'case-loc-1': 'São Paulo, Brasil', 'case-loc-2': 'São Paulo, Brasil', 'case-loc-3': 'São Paulo, Brasil',
+      'c1p1': 'Lideré el diseño y la escala de ecosistemas de datos con SQL y Python, transformando grandes volúmenes en dashboards ejecutivos.',
+      'c1p2': 'Asociación estratégica con CX y Operaciones para optimizar el recorrido del cliente y las métricas de satisfacción (NPS/CSAT).',
+      'c1p3': 'Reducción del tiempo medio de atención mediante análisis predictivo de cuellos de botella.',
+      'c2p1': 'Mapeo de recorridos de clientes, convirtiendo datos brutos en insights de comportamiento accionables.',
+      'c2p2': 'Diseño de KPIs y marcos de medición para productos de datos y experimentación.',
+      'c2p3': 'Estructuración de la segmentación de clientes para una estrategia omnicanal (App + OOH), elevando el estándar de targeting.',
+      'c3p1': 'Gestión de KPIs de growth y retención, traduciendo el comportamiento en estrategias de marketing de alto impacto.',
+      'c3p2': 'Consolidación del informe mensual de Growth, fuente de verdad para las decisiones de liderazgo.',
+      'c3p3': 'Segmentación y análisis de comportamiento para campañas estacionales.',
+      'sec3-title': 'Contacto',
+      'contact-title': '¿Hablamos?',
+      'contact-sub': 'Abierta a nuevas oportunidades, colaboraciones y buenas conversaciones sobre datos, diseño y todo lo que hay entre ambos.',
+      'form-label-name': 'Nombre', 'form-label-email': 'Correo electrónico', 'form-label-msg': 'Mensaje',
+      'f-name': 'Tu nombre', 'f-email': 'tu@correo.com', 'f-msg': 'Cuéntame un poco sobre lo que tienes en mente...',
+      'submit-btn': 'Enviar mensaje',
+      'formNoteSuccess': 'Abriendo tu aplicación de correo con el mensaje listo para enviar.',
+      'footer-big': 'Datos que tienen sentido.',
+      'footer-loc': '/ São Paulo, Brasil',
+      htmlLang: 'es'
+    }
+  };
+
+  let currentLang = localStorage.getItem('site-lang') || 'pt';
+
+  function applyLanguage(lang){
+    const dict = translations[lang];
+    if(!dict) return;
+    document.documentElement.lang = dict.htmlLang;
+    document.title = dict['doc-title'];
+    Object.keys(dict).forEach(id => {
+      if (id === 'htmlLang' || id === 'formNoteSuccess' || id === 'doc-title') return;
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = dict[id];
+      } else {
+        el.innerHTML = dict[id];
+      }
+    });
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    currentLang = lang;
+    localStorage.setItem('site-lang', lang);
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+  });
+
+  applyLanguage(currentLang);
+
+  /* ---------- contact form -> mailto fallback ---------- */
+  const form = document.getElementById('contact-form');
+  const note = document.getElementById('form-note');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const message = document.getElementById('f-msg').value.trim();
+    const subject = encodeURIComponent('Portfolio contact, ' + name);
+    const body = encodeURIComponent(message + '\n\n' + name + ' (' + email + ')');
+    window.location.href = 'mailto:ingridsabino000@gmail.com?subject=' + subject + '&body=' + body;
+    note.textContent = translations[currentLang].formNoteSuccess;
+    note.classList.add('ok');
+  });
+</script>
+
+</body>
+</html>
