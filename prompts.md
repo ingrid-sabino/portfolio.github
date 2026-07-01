@@ -54,26 +54,11 @@ inclua uma seção de serviços prestados:
 
 inlcua ícones/imagens na seção de serviços prestados
 
-remova traços de copy feito com ia (usos de travessão etc), o texto deve parecer ter sido escrito por um humano
 ```
 
 > Pedir explicitamente para remover "traços de copy feito com IA" (travessões em excesso, cadência repetitiva) foi um ajuste fino importante para o texto soar mais natural.
 
-### 6. Ilustração a partir de referência desenhada à mão
-
-```
-[imagem anexada: desenho autoral em anéis concêntricos]
-
-mantenha as mesmas estruturas do site, apenas reverta as fontes para as anteriores
-no titulo, reduza um pouco o tamanho e mantenha 'ingrid sabino' na mesma linha
-'Traduzindo complexidade em clareza' também deve ficar na mesma linha
-
-inlcua no início da pagina uma ilustração abstrata a partir do desenho em anexo
-```
-
-> A IA recriou o desenho enviado como SVG vetorial (leve, escalável, sem depender de imagem raster), interpretando o traço à mão livre com um filtro de turbulência para manter a textura orgânica.
-
-### 7. Refinamento final
+### 6. Refinamento final
 
 ```
 retire a imagem abstrata
@@ -88,7 +73,6 @@ na seção de idiomas troque ingles e espanhol para avançado ao inves de fluent
 
 - **Referências visuais valem mais que adjetivos.** Um link real ("quero algo parecido com isso") rende resultado muito mais preciso do que tentar descrever estilo em palavras.
 - **Enviar arquivos reais** (PDF do LinkedIn, foto de um desenho) elimina retrabalho: a IA extrai e adapta o conteúdo em vez de você ter que redigitar tudo.
-- **Pedir revisão explícita de tom** ("remova traços de copy feito com IA") é necessário. Por padrão, o texto gerado tende a ter cadências repetitivas (travessões, estrutura "não é X, é Y") que vale sempre revisar.
 - **Iterar em camadas** (estrutura → estilo → conteúdo → funcionalidade → polimento) funcionou melhor do que tentar pedir tudo de uma vez.
 
 ---
